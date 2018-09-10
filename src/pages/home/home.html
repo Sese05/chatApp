@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-navbar color="candy">
+    <ion-title>
+      Welcome
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="profile()"><ion-icon name="person"></ion-icon></button>
+      <button ion-button icon-only (click)="exitChat()"><ion-icon name="log-out"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+  <div class="speech-bubble">
+    <div classs="arrow">
+   <ion-list>
+     <ion-item *ngFor="let chat of chats" no-lines>
+          <div class="container" *ngIf="chat.type ==='join' || chat.type === 'exit';else message">
+            <span>{{chat.message}}</span>
+            <span class="time">{{chat.sentDate | date: 'short'}}</span><br>
+          </div>
+          <ng-template #message>
+            <div class="container-left" *ngIf="chat.user !== userProfile.firstName">
+              <span>{{userProfile.firstName}}</span><br>
+              <span >{{chat.message}}</span>
+              <span class="time">{{chat.sentDate | date: 'HH:mm'}}</span>
+            </div>
+            <div class="container-2" *ngIf="chat.user === userProfile.firstName">
+              <span class="time">{{chat.sentDate | date: 'HH:mm'}}</span>
+              <span>{{chat.message}}</span>
+             </div>          
+        </ng-template>
+     </ion-item>
+   </ion-list>
+  </div>
+  </div>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar color="candy">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-10>
+          <ion-input type="type" [(ngModel)]="data.message" placeholder="type message" ></ion-input>
+        </ion-col>
+        <ion-col col-2 (click)="sendMessage()">
+          <button ion-button round color="candy">
+          <ion-icon name="paper-plane" ></ion-icon>
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+  

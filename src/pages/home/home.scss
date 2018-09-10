@@ -1,0 +1,40 @@
+page-home {
+.content{
+    background-color:#F7E7E9;
+    background-repeat: no-repeat;
+    background-position:center;
+
+}
+.container{
+    border: 2px solid #dedede;
+    background-color: lightgoldenrodyellow;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    float: right;
+}
+.container-left{
+    border: 2px solid #dedede;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-right: 0;
+    padding: 10px;
+    margin: 10px 0;
+    float: left;
+
+}
+
+.item{
+    background:transparent;
+}
+.input{
+     border-radius: 20px;
+     color: black;
+     background-color: white;
+     
+ }
+ .time{
+     font-size:12px;
+ }
+
+}
